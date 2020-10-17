@@ -1,9 +1,8 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect } from "react";
 import { authAction } from "./../../../../store/action";
-import { Formik, Field } from "formik";
+import { Formik, Form, Field } from "formik";
 import emailConfirmationFormValidation from "./Validation";
 import { useHistory } from "react-router-dom";
-import { usePrevious } from "./../../../../services/helper";
 import { useSelector, useDispatch } from "react-redux";
 
 const EmailConfirmation = () => {
@@ -11,25 +10,14 @@ const EmailConfirmation = () => {
   const authReducer = useSelector((state) => state.authReducer);
   const dispatch = useDispatch();
   const {
-    resendCodeLoader,
+    // resendCodeLoader,
     signup,
     confirmationCodeLoader,
-    signIn,
-    signInLoader,
   } = authReducer;
-
-  const prevProps = usePrevious(useRef, useEffect, {
-    signInLoader,
-  });
 
   useEffect(() => {
     if (!signup) history.replace("/signup");
   }, [signup, history]);
-
-  useEffect(() => {
-    if (signIn && prevProps && prevProps.signInLoader && !signInLoader)
-      history.replace("/");
-  }, [history, signIn, prevProps, signInLoader]);
 
   return (
     <div className="email_confirmation_container">
@@ -41,7 +29,7 @@ const EmailConfirmation = () => {
           validationSchema={emailConfirmationFormValidation}
           onSubmit={(values) =>
             dispatch(
-              authAction.confirmCode({ ...values, email: signup["email"] })
+              authAction.confirmCode({ ...values, email: signup["email"], history })
             )
           }
         >
@@ -53,17 +41,12 @@ const EmailConfirmation = () => {
             handleBlur,
             handleSubmit,
           }) => (
-              <form
-                onSubmit={(e) => {
-                  e.preventDefault();
-                }}
-                autoComplete="off"
-              >
+              <Form>
                 <div className="wrapper">
                   <Field type="text" name="confirmationCode" placeholder="Enter Code" />
-                  <button type="submit">Confirm</button>
+                  <button type="submit" disabled={confirmationCodeLoader}>{confirmationCodeLoader ? '...loading' : 'Confirm'}</button>
                 </div>
-              </form>
+              </Form>
             )}
         </Formik>
       </div>

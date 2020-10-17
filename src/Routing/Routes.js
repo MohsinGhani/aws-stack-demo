@@ -5,14 +5,15 @@ import AuthenticatedRoute from "./AuthenticatedRoute";
 import {
   SignIn,
   SignUp,
-  EmailConfirmation
+  EmailConfirmation,
+  Home
 } from "../components/view/index";
 
 export default ({ childProps }) => {
 
   return (
     <Switch>
-      <AuthenticatedRoute exact path="/" component={<h1>Hello</h1>} props={childProps} />
+      <AuthenticatedRoute exact path="/" component={Home} props={childProps} />
       <Route
         exact
         path="/email-confirmation"

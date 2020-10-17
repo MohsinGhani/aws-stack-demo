@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import { Formik, Form, Field } from "formik";
 import signupFormValidation from "./Validation";
 import { useHistory } from "react-router-dom";
@@ -34,17 +34,17 @@ const SignUp = () => {
 
     <Formik
       initialValues={{
-        username: "",
-        email: "",
-        password: "",
+        username: "mohsin",
+        email: "mohsinghani.777@gmail.com",
+        password: "Mohsin1!",
       }}
       validationSchema={signupFormValidation}
       onSubmit={(values) => {
-        dispatch(authAction.signup({ ...values, role: "VOLUNTEER" }));
+        dispatch(authAction.signup({ ...values }));
       }}
     >
-      {({ errors, touched, handleChange, handleBlur, handleSubmit }) => (
-        <Form onSubmit={(e) => e.preventDefault()} autoComplete="off">
+      {_ => (
+        <Form>
           <Field type="text" name="username" placeholder="username" />
           <Field type="email" name="email" placeholder="email" />
           <Field type="password" name="password" placeholder="password" />

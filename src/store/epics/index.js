@@ -3,15 +3,10 @@ import authEpic from "./authEpic";
 
 const rootEpic = combineEpics(
   authEpic.signup,
-  authEpic.resendCode,
   authEpic.confirmCode,
   authEpic.signIn,
   authEpic.logout,
-  authEpic.isLoggedIn,
-  authEpic.forgotPassword,
-  authEpic.confirmNewPassword,
-  authEpic.changeNewPassword,
-  authEpic.changeEmail
+  authEpic.isLoggedIn
 );
 
 export default rootEpic;

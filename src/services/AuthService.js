@@ -14,8 +14,6 @@ export const signup = (user) => {
           email: u.user.username,
           userId: u.userSub,
           verified: u.userConfirmed,
-          role: user["custom:role"],
-          password,
           ...user,
         })
       )

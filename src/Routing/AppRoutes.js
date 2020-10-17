@@ -1,11 +1,16 @@
-import React, { Component } from "react";
+import React, { useEffect } from "react";
 import Routes from "./Routes";
+import { useDispatch } from "react-redux";
+import { authAction } from "../store/action/index";
 
-class AppRoutes extends Component {
+const AppRoutes = () => {
+  const dispatch = useDispatch();
 
-  render() {
-    return <Routes />; 
-  }
+  useEffect(() => {
+    dispatch(authAction.isLoggedIn())
+  }, [dispatch])
+
+  return <Routes />
 }
 
 export default AppRoutes;

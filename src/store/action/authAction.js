@@ -14,48 +14,13 @@ import {
   IS_LOGGED_IN,
   IS_LOGGED_IN_SUCCESS,
   IS_LOGGED_IN_FAILURE,
-  RESEND_CODE,
-  RESEND_CODE_SUCCESS,
-  RESEND_CODE_FAILURE,
   CONFIRMATION_CODE,
   CONFIRMATION_CODE_SUCCESS,
   CONFIRMATION_CODE_FAILURE,
-  FORGOT_PASSWORD,
-  FORGOT_PASSWORD_SUCCESS,
-  FORGOT_PASSWORD_FAILURE,
-  CONFIRM_NEW_PASSWORD,
-  CONFIRM_NEW_PASSWORD_SUCCESS,
-  CONFIRM_NEW_PASSWORD_FAILURE,
-  CHANGE_NEW_PASSWORD,
-  CHANGE_NEW_PASSWORD_SUCCESS,
-  CHANGE_NEW_PASSWORD_FAILURE,
-  CHANGE_EMAIL,
-  CHANGE_EMAIL_SUCCESS,
-  CHANGE_EMAIL_FAILURE,
+
 } from "../constants";
 
 export default class authAction {
-  ////////////////////////  CONFIRM NEW PASSWORD  ////////////////////
-  static confirmNewPassword(payload) {
-    return {
-      type: CONFIRM_NEW_PASSWORD,
-      payload,
-    };
-  }
-
-  static confirmNewPasswordSuccess(payload) {
-    return {
-      type: CONFIRM_NEW_PASSWORD_SUCCESS,
-      payload,
-    };
-  }
-
-  static confirmNewPasswordFailure(error) {
-    return {
-      type: CONFIRM_NEW_PASSWORD_FAILURE,
-      error,
-    };
-  }
 
   ////////////////////////  CONFIRMATION_CODE  ////////////////////
   static confirmCode(payload) {
@@ -77,45 +42,6 @@ export default class authAction {
     };
   }
 
-  ////////////////////////  FORGOT PASSWORD  ////////////////////
-  static forgotPassword(payload) {
-    return {
-      type: FORGOT_PASSWORD,
-      payload,
-    };
-  }
-  static forgotPasswordSuccess(payload) {
-    return {
-      type: FORGOT_PASSWORD_SUCCESS,
-      payload,
-    };
-  }
-  static forgotPasswordFailure(error) {
-    return {
-      type: FORGOT_PASSWORD_FAILURE,
-      error,
-    };
-  }
-
-  ////////////////////////  RESENDCODE  ////////////////////
-  static resendCode(payload) {
-    return {
-      type: RESEND_CODE,
-      payload,
-    };
-  }
-  static resendCodeSuccess(payload) {
-    return {
-      type: RESEND_CODE_SUCCESS,
-      payload,
-    };
-  }
-  static resendCodeFailure(error) {
-    return {
-      type: RESEND_CODE_FAILURE,
-      error,
-    };
-  }
   ////////////////////////  SIGNIN  ////////////////////
   static signIn(payload) {
     return {
@@ -218,47 +144,4 @@ export default class authAction {
     };
   }
 
-  ////////////////////////  CHANGE NEW PASSWORD  ////////////////////
-  static changePassword(payload) {
-    return {
-      type: CHANGE_NEW_PASSWORD,
-      payload,
-    };
-  }
-
-  static changeNewPasswordSuccess(payload) {
-    return {
-      type: CHANGE_NEW_PASSWORD_SUCCESS,
-      payload,
-    };
-  }
-
-  static changeNewPasswordFailure(error) {
-    return {
-      type: CHANGE_NEW_PASSWORD_FAILURE,
-      error,
-    };
-  }
-
-  ////////////////////////  CHANGE EMAIL  ////////////////////
-  static changeEmail(payload) {
-    return {
-      type: CHANGE_EMAIL,
-      payload,
-    };
-  }
-
-  static changeEmailSuccess(payload) {
-    return {
-      type: CHANGE_EMAIL_SUCCESS,
-      payload,
-    };
-  }
-
-  static changeEmailFailure(error) {
-    return {
-      type: CHANGE_EMAIL_FAILURE,
-      error,
-    };
-  }
 }

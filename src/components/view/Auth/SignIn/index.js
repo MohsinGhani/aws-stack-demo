@@ -1,5 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
-import { Link } from "react-router-dom";
+import React, { useEffect, useRef } from "react";
 import { authAction } from "./../../../../store/action";
 import { Formik, Form, Field } from "formik";
 import SignInFormValidation from "./Validation";
@@ -18,7 +17,6 @@ const SignIn = () => {
   const { signIn, signInLoader } = useSelector(
     ({ authReducer }) => authReducer
   );
-  const [iconType, setIconType] = useState(false);
   const dispatch = useDispatch();
   const history = useHistory();
 
@@ -40,17 +38,11 @@ const SignIn = () => {
       validationSchema={SignInFormValidation}
       onSubmit={(values) => dispatch(authAction.signIn({ ...values }))}
     >
-      {({ errors, touched, handleChange, handleBlur, handleSubmit }) => (
-        <Form onSubmit={(e) => e.preventDefault()} autoComplete="off">
+      {_ => (
+        <Form>
           <Field type="email" name="email" placeholder="email" />
           <Field type="password" name="password" placeholder="password" />
-
-          <p className="forgot_password">
-            <Link to="/forgot-password">
-              Forgot Password?
-            </Link>
-          </p>
-          <button type="submit">Submit</button>
+          <button type="submit" disabled={signInLoader}>{signInLoader ? '...loading' : 'Submit'}</button>
         </Form>
       )}
     </Formik>

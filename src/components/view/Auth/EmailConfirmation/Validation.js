@@ -1,5 +1,4 @@
 //not inuse at the moment due to problem in pass regex
-import React from "react";
 import * as Yup from "yup";
 
 const emailConfirmationFormValidation = Yup.object().shape({
