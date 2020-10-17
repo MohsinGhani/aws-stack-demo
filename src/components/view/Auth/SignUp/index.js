@@ -44,12 +44,16 @@ const SignUp = () => {
       }}
     >
       {_ => (
-        <Form>
-          <Field type="text" name="username" placeholder="username" />
-          <Field type="email" name="email" placeholder="email" />
-          <Field type="password" name="password" placeholder="password" />
-          <button type="submit">Submit</button>
-        </Form>
+        <center>
+          <Form>
+            <h3>Signup</h3>
+            <Field type="text" name="username" placeholder="username" />
+            <Field type="email" name="email" placeholder="email" />
+            <Field type="password" name="password" placeholder="password" />
+            <button type="submit">Signup</button>
+            <button type="button" onClick={() => history.push('/signin')}>{'Signin'}</button>
+          </Form>
+        </center>
       )}
     </Formik>
   );

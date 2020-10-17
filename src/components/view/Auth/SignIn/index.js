@@ -39,11 +39,15 @@ const SignIn = () => {
       onSubmit={(values) => dispatch(authAction.signIn({ ...values }))}
     >
       {_ => (
-        <Form>
-          <Field type="email" name="email" placeholder="email" />
-          <Field type="password" name="password" placeholder="password" />
-          <button type="submit" disabled={signInLoader}>{signInLoader ? '...loading' : 'Submit'}</button>
-        </Form>
+        <center>
+          <Form>
+            <h3>Login</h3>
+            <Field type="email" name="email" placeholder="email" />
+            <Field type="password" name="password" placeholder="password" />
+            <button type="submit" disabled={signInLoader}>{signInLoader ? '...loading' : 'Signin'}</button>
+            <button type="button" onClick={() => history.push('/signup')}>{'Signup'}</button>
+          </Form>
+        </center>
       )}
     </Formik>
   );
